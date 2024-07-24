@@ -1,0 +1,14 @@
+@use "../../app/styles/mixins.scss" as *;
+@use "../../app/styles/queries.scss" as *;
+@use '../../app/styles/abstracts/functions' as *;
+
+
+
+.dashboardContainer{
+    @include flexContainer($dir: row);
+
+}
+
+.container{
+@include flexContainer($dir: column);
+}

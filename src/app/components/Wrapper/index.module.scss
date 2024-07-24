@@ -1,0 +1,14 @@
+.wrapper {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .wrapperLeft {
+    padding-left: var(--gutter-h);
+  }
+  
+  .wrapperRight {
+    padding-right: var(--gutter-h);
+  }
+  

@@ -1,0 +1,14 @@
+@use 'sass:map';
+
+$dark: var(--primary-color);
+$light:var(--secondary-color);
+$themes: (
+  dark: (
+    bg: $dark,
+    text: $light,
+  ),
+  light: (
+    bg: $light,
+    text: $dark,
+  ),
+);

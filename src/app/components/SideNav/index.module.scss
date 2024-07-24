@@ -1,0 +1,33 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+
+
+.header {
+    padding: 0px 0;
+    @include gthemed { 
+      background-color: t('bg');
+      color: t('text'); 
+    }
+    height: 100vh;
+    transition: 2.2s cubic-bezier(.36,-0.01,0,.77);
+    backdrop-filter: blur(30px) saturate(2);
+    -webkit-backdrop-filter: blur(30px) saturate(2);
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  .wrap {
+    @include flexContainer($dir: column, $justify: center, $align: center, $wrap: wrap);
+    width: 100%;
+    height: 100%;
+    gap: calc(var(--base) / 2) var(--base);
+  
+  }
+  
+  .logo {
+    width: 50px;
+  }
+  
+  .hide { 
+    display: none;
+  }

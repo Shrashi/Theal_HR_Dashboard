@@ -1,0 +1,91 @@
+/* styles/globals.scss */
+@use './colors.scss' as *;
+@use './queries.scss' as *;
+@use './type.scss' as *;
+@use './abstracts/functions' as *;
+
+:root {
+  --base: 24px;
+  --font-body:'Jost', sans-serif;
+  --font-jost: 'Jost', sans-serif;
+
+  --gutter-h: 40px;
+  --block-padding: 120px;
+
+  @include large-break {
+    --gutter-h: 25px;
+    --block-padding: 96px;
+  }
+
+  @include mid-break {
+    --gutter-h: 12px;
+    --block-padding: 60px;
+
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  @extend %body;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#app {
+  height: 100vh;
+  @include gthemed { 
+    background-color: t('bg');
+    color: t('text'); 
+  }
+}
+
+body {
+  font-family: var(--font-jost);
+  margin: 0;
+  padding: 0;
+  // color: var(--color-dark-500);
+  overflow-y: hidden;
+
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-base-50);
+  }
+
+.mainContainer{
+  width: 100vw;
+  }
+  
+h1 {
+    @extend %h1;
+  }
+  
+  h2 {
+    @extend %h2;
+  }
+  
+  h3 {
+    @extend %h3;
+  }
+  
+  h4 {
+    @extend %h4;
+  }
+  
+  h5 {
+    @extend %h5;
+  }
+  
+  h6 {
+    @extend %h6;
+  }
+  
+ 

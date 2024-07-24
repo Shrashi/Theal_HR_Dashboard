@@ -1,0 +1,14 @@
+/* components/Button.module.scss */
+@use '../../styles/abstracts/functions' as *;
+
+.button {
+  @include gthemed { 
+    background-color: t('bg');
+    color: t('text'); 
+  }
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+  

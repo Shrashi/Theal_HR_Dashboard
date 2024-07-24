@@ -1,0 +1,57 @@
+@use '../../../styles/queries.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+@use '../../../styles/type.scss' as *;
+@use '../../../styles/abstracts/functions' as *;
+
+
+.nav {
+  @include flexContainer($dir: column, $justify: flex-start, $align: flex-start, $wrap: wrap);
+  opacity: 1;
+  transition: opacity 100ms linear;
+  visibility: visible;
+  margin: 5px 10px;
+  > * {
+    text-decoration: none;
+  }
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.iconLink{
+margin: 15px 10px;
+}
+
+.flexItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  @include gthemed { 
+    color: t('text'); 
+  }
+  &:hover {
+    color:var( --color-warning-50) ;
+}
+@extend %dashboardOptions;
+// @include text()
+}
+
+.iconLabel{
+padding: 2px 4px;
+display: none;
+margin: 0px 10px;
+}
+
+.show{
+  display: block;
+}
+
+:export {
+  btnPrimaryColor: var( --primary-color);
+  btnSecondaryColor: var( --secondary-color);
+  profileBtnColor: var( --color-base-1000);
+  avatarColor: var(--color-green-500);
+}

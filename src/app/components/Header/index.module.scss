@@ -1,0 +1,51 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+@use '../../styles/queries.scss' as *;
+
+  @include keyframes(fade){
+     0%{
+     opacity: 0.7;
+     }
+    50%{
+     opacity: 0.5;
+     }
+    100%{
+     opacity: 0.4;
+    }
+   }
+
+
+.header {
+    @include flexContainer($dir: row, $justify: space-between, $align: center);
+    // background-color: var(--color-purple-60);
+    @include gthemed { 
+      background-color: t('bg');
+      color: t('text'); 
+    }
+    border: 1px solid var(--color-white-500);
+    @include animate(fade, 1s, linear, 1);
+    @include extra-small-break{
+   .iconsWrapper{
+    display: none;
+   }
+
+    }
+}
+
+.logoWrapper {
+  @include container();
+}
+
+.iconsWrapper{
+  @include container();
+  @include flexContainer($dir: row, $justify: flex-end, $align: center);
+  width: 20%;
+}
+
+
+:export {
+  profileBtnColor: var( --color-base-1000);
+  avatarColor: var(--color-green-500);
+  btnPrimaryColor: var( --primary-color);
+  btnSecondaryColor: var( --secondary-color);
+}

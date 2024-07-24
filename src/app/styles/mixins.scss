@@ -1,0 +1,44 @@
+@mixin flexContainer($dir: column, $justify: none, $align: none, $wrap: nowrap){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+  flex-wrap: $wrap;
+    }
+    
+
+@mixin container($margin: 10px, $padding: 10px){
+    padding: $padding;
+    margin: $margin;
+} 
+
+@mixin text($font-size,$color,$bg-color) {
+   font-size: $font-size;
+    color: $color;
+   background: $bg-color;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+  }
+
+@mixin button($bg-color, $text-color, $padding, $border-radius) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: $padding;
+    cursor: pointer;
+    @include border-radius($border-radius);
+  }
+
+  @mixin gradient-background($direction, $colors...) {
+    background: linear-gradient($direction, $colors);
+  }
+
+  @mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
