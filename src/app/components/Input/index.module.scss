@@ -1,0 +1,74 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+@use '../../styles/queries.scss' as *;
+
+.inputWrap {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  font-family: system-ui;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 1px solid var(--color-gray-500);
+  background: none;
+  height: 52px;
+  line-height: calc(var(--base) * 2);
+  padding: 16px;
+  font-size: 16px;
+  @include gthemed { 
+    background-color: t('bg');
+    color: t('text'); 
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    @include gthemed { 
+        background-color: t('bg');
+        color: t('text'); 
+        -webkit-text-fill-color: t('bg');
+        -webkit-box-shadow: 0 0 0px 1000px t('text') inset;
+      }
+   
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.asterisk {
+  @include gthemed{
+    color: t('error-text');
+  }
+}
+
+.error {
+    @include gthemed{
+        background-color: t('error-bg');
+      }
+}
+
+.label {
+  margin-bottom: 0;
+  display: block;
+  line-height: 2;
+  margin-bottom: calc(var(--base) / 2);
+  font-size: 12px;
+  @include gthemed{
+    color: t("bg");
+  }
+}
+
+.errorMessage {
+  font-size: small;
+  line-height: 1.25;
+  margin-top: 4px;
+  @include gthemed{
+    color: t('error-text');
+  }
+}

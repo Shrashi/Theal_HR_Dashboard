@@ -1,14 +1,90 @@
-/* components/Button.module.scss */
+@use '../../styles/queries.scss' as *;
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/type.scss' as *;
 @use '../../styles/abstracts/functions' as *;
 
 .button {
-  @include gthemed { 
-    background-color: t('bg');
-    color: t('text'); 
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-flex;
+  padding: 10px 24px;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  svg {
+    margin-right: calc(var(--base) / 2);
+    width: var(--base);
+    height: var(--base);
   }
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer; 
+}
+
+.label {
+  @extend %label;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.appearance--primary {
+  @include gthemed{
+  background-color: t('bg');
+  color: t('text');
   }
-  
+}
+
+
+.appearance--secondary {
+  background-color: transparent;
+  @include gthemed{
+  box-shadow: inset 0 0 0 1px t('bg');
+  }
+}
+
+.primary--invert {
+  @include gthemed{
+  background-color: t('bg');
+  color: t('text');
+  }
+}
+
+.secondary--invert {
+  @include gthemed{
+  background-color: t('bg');
+  box-shadow: inset 0 0 0 1px t('bg');
+  }
+}
+
+.appearance--default {
+  @include gthemed{
+  padding: 0;
+  color: t('text');
+  }
+}
+
+.appearance--none {
+  @include gthemed{
+  padding: 0;
+  color: t('text');
+
+  &:local() {
+    .label {
+      text-transform: none;
+      line-height: inherit;
+      font-size: inherit;
+    }
+  }
+}
+}
+

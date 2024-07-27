@@ -2,13 +2,29 @@
 
 $dark: var(--primary-color);
 $light:var(--secondary-color);
+$input-bg-light: var(--color-base-0);
+$input-bg-dark: var( --color-base-400);
+$error-text-dark: var(--color-error-850);
+$error-text-light: var(--color-error-550);
+$error-bg-light: var(--color-warning-100);
+$error-bg-dark: var(--color-warning-700);
+
+
 $themes: (
   dark: (
     bg: $dark,
     text: $light,
+    input-bg: $input-bg-light,
+    error-text: $error-text-light,
+    error-bg: $error-bg-light,
+  
   ),
   light: (
     bg: $light,
     text: $dark,
+    input-bg: $input-bg-dark,
+    error-text: $error-text-dark,
+    error-bg: $error-bg-dark,
+   
   ),
 );

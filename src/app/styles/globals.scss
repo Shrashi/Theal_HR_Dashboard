@@ -36,7 +36,7 @@ html {
 html,
 body,
 #app {
-  height: 100vh;
+  min-height: 100vh;
   @include gthemed { 
     background-color: t('bg');
     color: t('text'); 
@@ -55,9 +55,9 @@ body {
 main {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
-    background-color: var(--color-base-50);
+    background-color: var( --color-base-0);
   }
 
 .mainContainer{

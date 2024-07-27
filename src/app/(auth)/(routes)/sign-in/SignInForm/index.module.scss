@@ -1,0 +1,42 @@
+@use '../../../../styles/mixins.scss' as *;
+@use '../../../../styles/abstracts/functions' as *;
+@use '../../../../styles/queries.scss' as *;
+
+
+.signInFormContainer{
+    min-height: calc(90vh - 10px);
+
+    .imageWrapper {
+        min-width: 50%;
+        min-height: 100%;
+        @include flexContainer($dir: column, $justify: center, $align: center);
+    
+    }
+    
+.formWrapper {
+    min-width: 50%;
+    min-height: 100%;
+
+    .form {
+        width: 100%;
+        @include flexContainer($dir: column, $justify: center, $align: center);
+
+        .fieldWrapper {
+            width: 70%;
+        }
+    }
+}
+}
+
+.submitBtn {
+    margin-top: 20px;
+}
+
+.signUpLink {
+    font-size: 14px;
+    margin-top: 10px;
+
+    @include gthemed {
+        color: t('bg')
+    }
+}

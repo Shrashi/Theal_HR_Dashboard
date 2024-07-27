@@ -38,7 +38,12 @@ export const ThemeProvider = ({ children }: Props) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`theme--${theme}`}>{children}</div>
+      <div
+        className={`theme--${theme}`}
+        style={{ width: "100%", minHeight: "100vh" }}
+      >
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };

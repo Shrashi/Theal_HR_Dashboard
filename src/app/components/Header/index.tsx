@@ -7,6 +7,7 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 import { useLocalStorage } from "@/app/hooks/useLocalStorage";
 import { ThemeContext } from "../../../../providers/ThemeProvider";
 import Switch from "@mui/material/Switch";
+import Logo from "../Logo";
 
 const Header = () => {
   const [userDetails, setUserDetails] = useState<any>();
@@ -15,11 +16,7 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.logoWrapper}>
-        {" "}
-        {/* <Image src="assets/icons/logo.svg" alt="logo" width={100} height={50} /> */}
-        Avaya Greens
-      </div>
+      <Logo />
       <div className={classes.iconsWrapper}>
         <div>
           <Avatar

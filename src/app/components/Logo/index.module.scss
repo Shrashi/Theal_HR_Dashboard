@@ -1,0 +1,15 @@
+@use '../../styles/queries.scss' as *;
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/type.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+
+.logoContainer{
+    &:hover {
+    color: var(--color-white-500);
+    }
+    @include flexContainer($dir: row, $justify: flex-start);
+    .logoText{
+        margin-top: 5px;
+        margin-left: 2px;
+    }
+}

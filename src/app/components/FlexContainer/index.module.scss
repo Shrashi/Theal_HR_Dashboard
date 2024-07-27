@@ -1,0 +1,17 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+@use '../../styles/queries.scss' as *;
+
+
+.FlexContainerCol{
+    display: flex;
+    @include flexContainer($dir: column, $justify: center, $align: center);
+    @include container(5px, 5px);
+}
+
+.FlexContainerRow {
+    display: flex;
+    @include flexContainer($dir: row, $justify: space-between, $align: center);
+    @include container(5px, 5px);
+
+}

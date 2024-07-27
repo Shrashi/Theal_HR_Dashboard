@@ -1,0 +1,11 @@
+@use '../../../styles/mixins.scss' as *;
+@use '../../../styles/abstracts/functions' as *;
+@use '../../../styles/queries.scss' as *;
+
+.loginHeader {
+    min-height: 10vh;
+@include gthemed{
+    background-color: t('bg');
+    color: t('text');
+}
+}

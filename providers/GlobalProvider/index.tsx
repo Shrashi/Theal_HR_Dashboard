@@ -159,7 +159,6 @@ export default function GlobalState({ children }: { children: ReactNode }) {
 
   const router = useRouter();
   const pathName: string = usePathname();
-  console.log("pathname", pathName);
   useEffect(() => {
     if (Cookies.get("token") !== undefined) {
       setIsAuthUser(true);

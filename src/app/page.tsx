@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { isTokenExpired } from "../../utils/token";
 import getCookies from "./api/cookies/route";
 import { redirect } from "next/navigation";
-import { ThemeProvider } from "../../providers/ThemeProvider";
 
 export default function Home() {
   const token: any = getCookies();
