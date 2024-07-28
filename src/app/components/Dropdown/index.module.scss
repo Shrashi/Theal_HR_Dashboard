@@ -1,0 +1,95 @@
+@use '../../styles/queries.scss' as *;
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/type.scss' as *;
+@use '../../styles/abstracts/functions' as *;
+
+
+.dropdownContainer{
+    position: relative;
+    display: inline-block;
+
+.inputWrapper {
+        align-items: center;
+        background-color: inherit;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        border-color:var(--color-base-550);
+        color : var(--color-base-1000);
+        display: flex;
+        font-size: inherit;
+        max-width: 300px;
+        width: 220px;
+        padding: 0.5em;
+        @include flexContainer($dir: row, $justify: space-between, $align: center);
+
+
+        .input{
+            outline: none;
+            padding: 5px;
+            border: none;
+        }
+
+        .arrow {
+            // content: "";
+            border-bottom: 1px solid  var(--color-base-1000);
+            border-right: 1px solid  var(--color-base-1000);
+            height: 0.5em;
+            margin-right: 0.5em;
+            width: 0.5em;
+            transform: rotate(45deg);
+        }
+        
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        position: absolute;
+        display: inline-block;
+        margin: 0;
+        li {
+            list-style-type: none;
+            border: 1px solid transparent;
+            margin: 0;
+                a {
+                    @include gthemed {
+                        color : var(--color-base-1000);
+                    }
+                
+                &:link {
+                    text-decoration: none;
+                    display: block;
+              padding: 0.5em;
+                }
+                &:hover{
+                    @include gthemed{
+                        background-color: t('text');
+                    }
+                }
+            }
+        }
+    }
+    
+.dropdownList{
+    background-color: var( --color-base-50);
+    border: 1px solid var(--color-base-550);
+    position: absolute;
+    border-radius: 3px;
+    color: var(--color-base-1000);
+    display: none;
+    width: 220px;
+    position: absolute;
+  }
+  .active{
+    display: block;
+}
+
+}
+
+
+:export {
+    selectedItemColor: var(--secondary-color );
+    unSelectedItemColor: var( --color-base-50);
+
+    
+  }
+
