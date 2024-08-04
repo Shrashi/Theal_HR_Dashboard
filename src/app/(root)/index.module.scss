@@ -6,10 +6,14 @@
 
 .dashboardContainer{
     @include flexContainer($dir: row);
-    height: 100%;
+    height: calc(100% - 85px);
 }
 
 .container{
 @include flexContainer($dir: column);
 height: 100vh;
+}
+
+.innerContainer{
+    width: 100%;
 }

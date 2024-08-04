@@ -1,4 +1,6 @@
 @use 'queries' as *;
+@use './mixins.scss' as *;
+@use './abstracts/functions' as *;
 
 %h1,
 %h2,
@@ -107,4 +109,20 @@
 %dashboardOptions {
   font-size: 15px;
   line-height: 15px;
+}
+
+%label {
+  margin-bottom: 0;
+  display: block;
+  line-height: 2;
+  margin-bottom: calc(var(--base) / 2);
+  font-size: 12px;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+%asterisk{
+  @include gthemed{
+    color: t('error-text');
+  }
 }

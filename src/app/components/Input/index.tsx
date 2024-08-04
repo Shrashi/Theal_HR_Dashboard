@@ -12,10 +12,13 @@ type Props = {
   minLength?: number;
   maxLength?: number;
   error: any;
-  type?: "text" | "number" | "password" | "email";
+  value?: any;
+  type?: "text" | "number" | "password" | "email" | "date";
   validate?: (value: string) => boolean | string;
+  handleChange?: (e: React.SyntheticEvent) => void;
   disabled?: boolean;
   style?: CSSProperties;
+  valueAsNumber?: boolean;
 };
 
 export const Input: React.FC<Props> = ({
@@ -24,14 +27,18 @@ export const Input: React.FC<Props> = ({
   required,
   placeholder,
   register,
+  value,
   error,
   type = "text",
   validate,
   disabled,
   minLength,
+  handleChange,
   maxLength,
   style,
+  valueAsNumber,
 }) => {
+  console.log("val", value);
   return (
     <div className={classes.inputWrap}>
       <label htmlFor="name" className={classes.label}>
@@ -40,15 +47,30 @@ export const Input: React.FC<Props> = ({
       </label>
       <input
         style={style}
-        className={[classes.input, error && classes.error]
+        className={[
+          classes.input,
+          error && classes.error,
+          type === "number" && classes.removeArrow,
+        ]
           .filter(Boolean)
           .join(" ")}
         {...{ type }}
         {...register(name, {
           required,
+          ...(typeof handleChange === "function" && {
+            onChange: (e) => {
+              handleChange(e);
+            },
+          }),
+          ...(value && {
+            value: value,
+          }),
           minLength,
           maxLength,
           validate,
+          ...(valueAsNumber && {
+            valueAsNumber: valueAsNumber,
+          }),
           ...(type === "email"
             ? {
                 pattern: {

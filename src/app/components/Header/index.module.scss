@@ -17,6 +17,7 @@
 
 .header {
     @include flexContainer($dir: row, $justify: space-between, $align: center);
+    height: 85px;
     // background-color: var(--color-purple-60);
     @include gthemed { 
       background-color: t('bg');

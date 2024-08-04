@@ -5,23 +5,15 @@ export interface IEmployee extends Document {
   firstName: string;
   lastName: string;
   email: string;
-  ctc: {
-    variable: number;
-    fixed: number;
-  };
+  variableCtc: number;
+  fixedCtc: number;
   gender: string;
   hiredOn: string;
-
   terminatedOn: string;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    pincode: number;
-  };
+  address: string;
   country: string;
   monthlyCompensation: number;
-  trainingCompletion: boolean;
+  trainingCompleted: boolean;
   trainingCost: number;
   trainingHrs: number;
   trainingPrograms: string[];
@@ -51,14 +43,16 @@ const schemaDefinition: EmployeeSchemaDefinition = {
     unique: true,
     validate: [validator.isEmail, "Invalid email format!"],
   },
-  ctc: {
-    type: Map,
+  variableCtc: {
     of: Number,
-    required: [true, "Please enter employee CTC"],
+    required: [true, "Please enter employee's Variable CTC"],
+  },
+  fixedCtc: {
+    of: Number,
+    required: [true, "Please enter employee's Fixed CTC"],
   },
   gender: {
     type: String,
-    enum: ["M", "F"],
     required: [true, "Please enter employee Gender"],
   },
   hiredOn: {
@@ -70,10 +64,8 @@ const schemaDefinition: EmployeeSchemaDefinition = {
     type: String,
   },
   address: {
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    pincode: { type: Number, required: true },
+    type: String,
+    required: true,
   },
   country: {
     type: String,
@@ -83,7 +75,7 @@ const schemaDefinition: EmployeeSchemaDefinition = {
     type: Number,
     required: [true, "Please enter monthly compensation"],
   },
-  trainingCompletion: {
+  trainingCompleted: {
     type: Boolean,
     required: true,
   },

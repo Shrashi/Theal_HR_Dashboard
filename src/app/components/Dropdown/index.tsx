@@ -3,9 +3,10 @@
 import * as React from "react";
 import styles from "./index.module.scss";
 import useOutsideClick from "@/app/hooks/useOutsideClick";
+import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 
 interface IDropdownItem {
-  id: number;
+  id: string;
   label: string;
   name: string;
 }
@@ -15,26 +16,30 @@ interface IProps {
   selected: string | null;
   setSelected: (value: string) => void;
   freeSolo?: Boolean;
+  style?: React.CSSProperties;
+  label?: string;
+  required?: boolean;
+  placeholder?: string;
 }
 
 const dropdownItems = [
   {
-    id: 1,
+    id: "1",
     label: "myLink",
     name: "option",
   },
   {
-    id: 2,
+    id: "2",
     label: "myLink2",
     name: "option2",
   },
   {
-    id: 3,
+    id: "3",
     label: "myLink3",
     name: "option3",
   },
   {
-    id: 4,
+    id: "4",
     label: "myLink4",
     name: "option4",
   },
@@ -45,6 +50,10 @@ const Dropdown = ({
   selected,
   setSelected,
   freeSolo,
+  style,
+  label,
+  required,
+  placeholder,
 }: IProps) => {
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -111,7 +120,7 @@ const Dropdown = ({
           }}
         >
           <a
-            href={item.label}
+            href={item.label || ""}
             onFocus={() => focusHandler(index)}
             onClick={(e) => {
               e.preventDefault();
@@ -131,28 +140,37 @@ const Dropdown = ({
   };
 
   return (
-    <div className={styles.dropdownContainer} ref={dropdownRef}>
-      <div className={styles.inputWrapper} onClick={handleClick}>
-        <input
-          aria-haspopup="true"
-          aria-controls="dropdown1"
-          placeholder="Select Value"
-          className={styles.input}
-          onChange={handleChangeOptions}
-          onKeyDown={keyHandler}
-          value={selected ? selected : ""}
-        />
-        <div className={styles.arrow}></div>
+    <div className={styles.dropdownWrapper}>
+      {label && (
+        <label htmlFor="name">
+          {label}
+          {required ? <span>&nbsp;*</span> : ""}
+        </label>
+      )}
+      <div className={styles.dropdownContainer} ref={dropdownRef} style={style}>
+        <div className={styles.inputWrapper} onClick={handleClick}>
+          <input
+            aria-haspopup="true"
+            aria-controls="dropdown1"
+            placeholder={placeholder || "Select Value"}
+            className={styles.input}
+            onChange={handleChangeOptions}
+            onKeyDown={keyHandler}
+            value={selected ? selected : ""}
+            style={{ ...style, width: "100%" }}
+          />
+          <KeyboardArrowDownOutlinedIcon className={styles.arrow} />
+        </div>
+        <ul
+          id="dropdown1"
+          role="list"
+          className={[styles.dropdownList, isOpen && styles.active]
+            .filter(Boolean)
+            .join("")}
+        >
+          {renderOptions()}
+        </ul>
       </div>
-      <ul
-        id="dropdown1"
-        role="list"
-        className={[styles.dropdownList, isOpen && styles.active]
-          .filter(Boolean)
-          .join(" ")}
-      >
-        {renderOptions()}
-      </ul>
     </div>
   );
 };

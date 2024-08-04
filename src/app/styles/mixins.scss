@@ -1,4 +1,4 @@
-@mixin flexContainer($dir: column, $justify: none, $align: none, $wrap: nowrap){
+@mixin flexContainer($dir: null, $justify: null, $align: null, $wrap: null){
     display: flex;
     flex-direction: $dir;
     justify-content: $justify;
@@ -41,4 +41,14 @@
     @keyframes #{$name}{
         @content;
     }
+}
+
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null) {
+  display: grid;
+  gap: $gap;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+  
 }

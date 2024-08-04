@@ -3,47 +3,77 @@
 @use '../../styles/type.scss' as *;
 @use '../../styles/abstracts/functions' as *;
 
-
+.dropdownWrapper{
+   label {
+    @extend %label;
+    span{
+        @extend %asterisk;
+    }
+   }
 .dropdownContainer{
     position: relative;
     display: inline-block;
-
-.inputWrapper {
+    @include gthemed { 
+        background-color: t('text');
+        color: t('bg'); 
+      }
+.inputWrapper{
         align-items: center;
         background-color: inherit;
-        border: 1px solid transparent;
+        @include gthemed {
+            border: 1px solid var(--primary-color);
+        }
         border-radius: 3px;
         border-color:var(--color-base-550);
         color : var(--color-base-1000);
         display: flex;
         font-size: inherit;
-        max-width: 300px;
-        width: 220px;
+        width: 100%;
         padding: 0.5em;
         @include flexContainer($dir: row, $justify: space-between, $align: center);
 
 
-        .input{
-            outline: none;
-            padding: 5px;
-            border: none;
-        }
-
-        .arrow {
-            // content: "";
-            border-bottom: 1px solid  var(--color-base-1000);
-            border-right: 1px solid  var(--color-base-1000);
-            height: 0.5em;
-            margin-right: 0.5em;
-            width: 0.5em;
-            transform: rotate(45deg);
-        }
+                .input {
+                    outline: none;
+                    padding: 5px;
+                    border: none;
         
-    }
-    ul{
-        list-style-type: none;
-        padding: 0;
-        position: absolute;
+                    @include gthemed {
+                        background-color: t('text');
+                        color: t('bg');
+                    }
+        
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover,
+                    &:-webkit-autofill:focus {
+                        @include gthemed {
+                            background-color: t('text') !important;
+                            color: t('bg') !important;
+                            -webkit-text-fill-color: t('bg');
+                            -webkit-box-shadow: 0 0 0px 1000px t('text') inset;
+                        }
+        
+                        transition: background-color 5000s ease-in-out 0s !important;
+                    }
+                }
+        
+                .arrow {
+                    @include gthemed {
+                        color: t('bg');
+                    }
+                }
+        
+                }
+        
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    position: absolute;
+                    top: 45px;
+                    width: 100%;
+                    z-index: 1000;
+                    height: 270px;
+                    overflow-y: auto;
         display: inline-block;
         margin: 0;
         li {
@@ -51,8 +81,11 @@
             border: 1px solid transparent;
             margin: 0;
                 a {
+                    // color : var(--color-base-50);
+                    font-size: 13px;
                     @include gthemed {
-                        color : var(--color-base-1000);
+                        background-color: t('text');
+                        color: t('bg');
                     }
                 
                 &:link {
@@ -62,7 +95,8 @@
                 }
                 &:hover{
                     @include gthemed{
-                        background-color: t('text');
+                        background-color: t('bg');
+                        color: t('text');
                     }
                 }
             }
@@ -72,24 +106,21 @@
 .dropdownList{
     background-color: var( --color-base-50);
     border: 1px solid var(--color-base-550);
-    position: absolute;
     border-radius: 3px;
     color: var(--color-base-1000);
     display: none;
-    width: 220px;
-    position: absolute;
+  
   }
   .active{
     display: block;
 }
 
 }
+}
 
 
 :export {
-    selectedItemColor: var(--secondary-color );
+    selectedItemColor: var(--primary-color );
     unSelectedItemColor: var( --color-base-50);
-
-    
   }
 

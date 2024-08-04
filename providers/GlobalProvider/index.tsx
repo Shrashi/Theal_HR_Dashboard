@@ -23,22 +23,15 @@ export const initialEmployeeDetail = {
   firstName: "",
   lastName: "",
   email: "",
-  ctc: {
-    variable: 0,
-    fixed: 0,
-  },
+  variableCtc: 0,
+  fixedCtc: 0,
   gender: "",
   hiredOn: "",
   terminatedOn: "",
-  address: {
-    street: "",
-    city: "",
-    state: "",
-    pincode: 0,
-  },
+  address: "",
   country: "",
   monthlyCompensation: 0,
-  trainingCompletion: false,
+  trainingCompleted: false,
   trainingCost: 0,
   trainingHrs: 0,
   trainingPrograms: [""],
@@ -71,22 +64,15 @@ export type EmployeeDetail = {
   firstName: string;
   lastName: string;
   email: string;
-  ctc: {
-    variable: number;
-    fixed: number;
-  };
+  variableCtc: number;
+  fixedCtc: number;
   gender: string;
   hiredOn: string;
   terminatedOn: string;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    pincode: number;
-  };
+  address: string;
   country: string;
   monthlyCompensation: number;
-  trainingCompletion: boolean;
+  trainingCompleted: boolean;
   trainingCost: number;
   trainingHrs: number;
   trainingPrograms: string[];

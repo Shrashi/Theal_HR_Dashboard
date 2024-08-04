@@ -68,6 +68,7 @@ const SignInForm = () => {
           alt="employees"
           src={employees}
           style={{ objectFit: "cover", width: "100%", height: "60%" }}
+          priority
         />
       </div>
       <FlexContainer dir="col" className={styles.formWrapper}>

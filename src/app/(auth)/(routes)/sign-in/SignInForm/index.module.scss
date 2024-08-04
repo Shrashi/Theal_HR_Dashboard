@@ -3,6 +3,17 @@
 @use '../../../../styles/queries.scss' as *;
 
 
+
+@include keyframes(slide-in) {
+    from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+}
+
+
 .signInFormContainer{
     min-height: calc(90vh - 10px);
 
@@ -10,7 +21,7 @@
         min-width: 50%;
         min-height: 100%;
         @include flexContainer($dir: column, $justify: center, $align: center);
-    
+        @include animate(slide-in, 1s, linear, 1);
     }
     
 .formWrapper {

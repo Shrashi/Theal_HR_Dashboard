@@ -1,0 +1,47 @@
+@use "../../../../../styles/mixins.scss" as *;
+@use "../../../../../styles/queries.scss" as *;
+@use '../../../../../styles/abstracts/functions' as *;
+
+
+.employeeDetailFormContainer {
+    @include flexContainer($dir: column);
+    height: calc(100% - 40px);
+    overflow-y: scroll;
+    margin: 0px 20px;
+
+    h3 {
+        color: var(--primary-color);
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px 20px;
+    }
+
+    form {
+        margin: 0px 20px;
+        .details {
+            @include flexContainer($dir: column);
+             .detailsContainer{
+                border : 1px solid var(--primary-color);
+                border-radius: 10px;
+                margin: 20px 0px;
+                .detailsWrapper {
+                    @include grid($rows: 1fr, $columns: 1fr 1fr 2fr 2fr, $gap: 5, $row-gap: 2em, $column-gap: 2em);
+
+                    @include mid-break {
+                        @include grid($rows: 1fr, $columns: repeat(2, 1fr), $gap: 5, $row-gap: 2em, $column-gap: 2em);
+
+                    }
+
+                   
+                    padding: 20px 20px;
+
+                }
+            }
+        }
+        .searchWrapper{
+            display: block !important;
+        }
+    }
+
+
+}
